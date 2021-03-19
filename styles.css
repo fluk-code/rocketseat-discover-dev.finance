@@ -1,7 +1,8 @@
 /* Global ============================= */
 :root{
-    --color-black: #000;
     --color-white: #fff;
+    --color-black: #000;
+    --color-light-grey: #F0f2f5;
     --color-green: #49aa26;
     --color-red: #e92929;
     --color-dark-green: #2D4A22;
@@ -14,9 +15,25 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 93.75%;
+}
+
 body{
-    background-color: #f0f2f5;
+    background-color: var(--color-light-grey);
     font-family: 'Poppins', sans-serif;
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    word-spacing: nowrap;
+    border-width: 0;
 }
 
 .container{
@@ -34,7 +51,7 @@ body{
 }
 
 /* Titles ============================ */
-h2 {
+h2{
     margin-top: 3.2rem;
     margin-bottom: 0.8rem;
     color: var(--color-dark-blue);
@@ -42,10 +59,58 @@ h2 {
 
 }
 
+/* Links & Buttons =================== */
+a{
+    color: var(--color-dark-green);
+    text-decoration: none;
+}
+
+a:hover{
+    color: var(--color-green);
+}
+
+.button.new{
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
+.button.cancel{
+    height: 50px;
+    color: var(--color-red);
+    border: 2px var(--color-red) solid;
+    border-radius: .25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: .6;
+}
+
+.button.cancel:hover{
+    opacity: 1;
+}
+
+button{
+    width: 100%;
+    height: 50px;
+    color: var(--color-white);
+    background-color: var(--color-dark-green);
+    padding: 0;
+    border: none;
+    border-radius: .25rem;
+
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--color-green);
+}
+
 /* Header ============================ */
 header{
     background-color: var(--color-dark-green);
-    padding: 2rem 0 10rem;
+    padding: 3rem 0 10rem;
     text-align: center;
 }
 
@@ -57,19 +122,27 @@ header h1#logo{
 /* Main ============================== */
 /*main{}*/
 
-    /* Balance ======================= */
-    section#balance{
-        margin-top: -8rem;
-    }
+    /* Section ======================= */
+        /* Balance ======================= */
+        section#balance{
+            margin-top: -7.5rem;
+        }
 
-    section#balance h2{
-        color: var(--color-white);
-        margin-top: 0;
-    }
+            section#balance h2{
+                color: var(--color-white);
+                margin-top: 0;
+            }
 
-    
+        /* Transaction =================== */
+
+        section#transactions{
+            width: 100%;
+            display: block;
+            overflow-x: auto;
+        }
+        
     /* Card ========================== */
-    div.card {
+    div.card{
         background-color: var(--color-white);
         padding: 1.5rem 2rem;
         border-radius: 0.25rem;
@@ -77,69 +150,145 @@ header h1#logo{
         color: var(--color-dark-blue);
     }
 
-    div.card h3{
-        font-weight: normal;
-        font-size: 1rem;
-    }
+        div.card:last-child{
+            background-color: var(--color-green);
+            color: var(--color-white);
+        }
 
-    div.card p{
-        font-size: 2rem;
-        line-height: 3rem;
 
-        margin-top: 1rem;;
-    }
+        div.card h3{
+            font-weight: normal;
+            font-size: 1rem;
 
-    div.card:last-child {
-        background-color: var(--color-green);
-        color: var(--color-white);
-    }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        div.card p{
+            font-size: 2rem;
+            line-height: 3rem;
+
+            margin-top: 1rem;;
+        }
 
     /* Table ========================= */
-    table#data-table-transactions {
+    table#data-table{
         width: 100%;
         border-spacing: 0 0.5rem;
         color: var(--color-dark-blue);
     }
 
-    table#data-table-transactions thead tr th:first-child,
-    table#data-table-transactions tbody tr td:first-child{
-        border-radius: 0.25rem 0 0 0.25em;
-    }
-    
-    table#data-table-transactions thead tr th:last-child,
-    table#data-table-transactions tbody tr td:last-child{
-        border-radius: 0 0.25rem 0.25rem 0;
-    }
-
-    table#data-table-transactions thead tr th{
-        background-color: var(--color-white);
-        padding: 1rem 2rem;
+        table#data-table thead tr th:first-child,
+        table#data-table tbody tr td:first-child{
+            border-radius: 0.25rem 0 0 0.25em;
+        }
         
-        font-weight: normal;
-        text-align: left;
-        opacity: 0.6;
+        table#data-table thead tr th:last-child,
+        table#data-table tbody tr td:last-child{
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+
+        table#data-table thead tr th{
+            background-color: var(--color-white);
+            padding: 1rem 2rem;
+            
+            font-weight: normal;
+            text-align: left;
+        }
+
+        table#data-table tbody tr{
+            opacity: .7;
+        }   
+
+        table#data-table tbody tr:hover{
+            opacity: 1;
+        }
+
+            table#data-table tbody tr td{
+                background-color: var(--color-white);
+                padding: 1rem 2rem;
+
+                font-weight: normal;
+            }
+
+            table#data-table tbody tr td.description{
+                color: var(--color-dark-blue);
+            }
+
+/* Moda ============================== */
+div.modal-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+div.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+    div.modal{
+        width: 90%;
+        max-width: 500px;
+        padding: 2.4rem;
+        background-color: var(--color-light-grey);
+
+        position: relative;
+        z-index: 1;
     }
 
-    table#data-table-transactions tbody tr{
-        opacity: .7;
-    }   
+/* Form ============================== */
 
-    table#data-table-transactions tbody tr:hover{
-        opacity: 1;
+div#form{
+    max-width: 500px;
+}
+
+    div#form h2{
+        margin-top: 0;
     }
 
-    table#data-table-transactions tbody tr td{
-        background-color: var(--color-white);
-        padding: 1rem 2rem;
+    
+/* input ============================ */
 
-        font-weight: normal;
+div.input-group{
+    margin-top: .8rem;
+}
+
+    input{
+        width: 100%;
+        border: none;
+        border-radius: .2rem;
+        padding: .8rem;
     }
 
-    table#data-table-transactions tbody tr td.description{
-        color: var(--color-dark-blue);
+    div.input-group small{
+        opacity: .4;
     }
 
-    /* Footer ============================ */
+    /* Links & Buttons =============== */
+
+    div.input-group.actions{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div.input-group.actions .button,
+    div.input-group.actions button{
+        width: 48%;
+    }
+/* Footer ============================ */
 footer{
     padding: 4rem 0 2rem;
     text-align: center;
