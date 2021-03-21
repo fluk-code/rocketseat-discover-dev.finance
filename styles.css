@@ -250,11 +250,11 @@ div.modal-overlay.active{
 
 /* Form ============================== */
 
-div#form{
+div#form-add-transaction{
     max-width: 500px;
 }
 
-    div#form h2{
+    div#form-add-transaction h2{
         margin-top: 0;
     }
 
