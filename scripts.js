@@ -1,6 +1,6 @@
 const Storage = {
     get(){
-        return JSON.parse(localStorage.getItem('dev.fincances:transactions')) || [];
+        return JSON.parse(localStorage.getItem('dev.finances:transactions')) || [];
     },
     set(_transactions){
         localStorage.setItem("dev.finances:transactions",JSON.stringify(_transactions))
